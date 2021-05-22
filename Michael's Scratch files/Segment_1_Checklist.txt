@@ -1,0 +1,56 @@
+Presentation:
+ (Covered in README this week)
+    Selected Topic __
+    Reason for Topic __
+    Description of Source Data __
+    Questions to answer __
+
+Github:
+
+    README included _X_
+    README includes:
+        communication protocol __
+        Lists files used for Database __
+        Lists Machine Learning file and how it connects to Database __
+        Lists Technology.md
+    All members have a branch _X_
+    All members have at least 4 commits __
+
+Machine Learning:
+
+    Takes in data from provisional database _(currently takes in data, make sure it comes from the provisional Database files)
+        Provisional data base file name(s) ___
+        Column names, datatypes __
+    Outputs label for input data _X_
+
+Database:
+
+    Sample data mimics expected final database structure or schema _(ERD for schema, separate CSV/EXCEL files standing in for each table)
+        Provisional data base file name(s) ___
+        Column Names, data types__
+    Draft Machine Learning Model connected _(make sure machine learning connects to correct files)
+
+Keeping Main clean:
+
+    Files for submission (provisional database files, machine learning script, technology.md) are clearly named and easy to find __
+        Double check that Column names/Table layouts match those chosen in ERD, Provisional Database files, Machine Learning read in __ before merging
+    
+    Any draft files, scratch work, duplicates of data sources, are in 'Scratch' folder to avoid clutter __
+    
+    Make sure you have at least 4 commits before merging  
+    
+    Check the rubric to make sure all tasks for your branch are completed and addressed before merging
+    
+    When ready to merge, create pull request, comment with tasks you did on your branch, files created, expected
+    
+    Merge branch, but do not delete yet
+
+    After merging, Git checkout to switch back to Main on your local repo, git Pull to update your Main
+
+    DO NOT CREATE NEW BRANCH YET!  Wait for all branches to be merged, 
+        then we all get pull Main to be up to date with end of segment before creating next branch.
+    
+    Everyone submits link to their segment 1 Github branch to show their commit history after merging.
+    
+    
+
