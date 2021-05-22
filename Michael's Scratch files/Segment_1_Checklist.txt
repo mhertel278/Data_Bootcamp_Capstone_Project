@@ -18,14 +18,14 @@ Github:
 
 Machine Learning:
 
-    Takes in data from provisional database _(currently takes in data, make sure it comes from the provisional Database files)
+    Takes in data from provisional database --
         Provisional data base file name(s) ___
         Column names, datatypes __
     Outputs label for input data _X_
 
 Database:
 
-    Sample data mimics expected final database structure or schema _(ERD for schema, separate CSV/EXCEL files standing in for each table)
+    Sample data mimics expected final database structure or schema __
         Provisional data base file name(s) ___
         Column Names, data types__
     Draft Machine Learning Model connected _(make sure machine learning connects to correct files)

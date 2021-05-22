@@ -1,0 +1,19 @@
+    Files for submission (provisional database files, machine learning script, technology.md) are clearly named and easy to find __
+        Double check that Column names/Table layouts match those chosen in ERD, Provisional Database files, Machine Learning read in __ before merging
+    
+    Any draft files, scratch work, duplicates of data sources, are in 'Scratch' folder to avoid clutter __
+    
+    Make sure you have at least 4 commits before merging  
+    
+    Check the rubric to make sure all tasks for your branch are completed and addressed before merging
+    
+    When ready to merge, create pull request, comment with tasks you did on your branch, files created, expected
+    
+    Merge branch, but do not delete yet
+
+    After merging, Git checkout to switch back to Main on your local repo, git Pull to update your Main
+
+    DO NOT CREATE NEW BRANCH YET!  Wait for all branches to be merged, 
+        then we all get pull Main to be up to date with end of segment before creating next branch.
+    
+    Everyone submits link to their segment 1 Github branch to show their commit history after merging.
