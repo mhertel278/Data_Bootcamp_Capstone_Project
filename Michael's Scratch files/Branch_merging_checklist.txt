@@ -15,7 +15,7 @@
     
     Check the rubric to make sure all tasks for your branch are completed and addressed before merging.  Any doubt if you're covered, slack out an inquiry.
     
-    When ready to merge, create pull request, comment with tasks you did on your branch, files created, etc.
+    When ready to merge, go to your branch and click Compare & pull request, comment with tasks you did on your branch, files created, etc.
     
     If github says there are no conflicts with main, click Merge Pull Request to Merge branch, but do not delete your branch yet.
         We have to submit the links to our individual branches in the module "Module 20 First Segment Project Deliverable".  
