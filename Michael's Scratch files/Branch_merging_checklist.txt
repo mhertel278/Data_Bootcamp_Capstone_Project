@@ -21,6 +21,11 @@
         We have to submit the links to our individual branches in the module "Module 20 First Segment Project Deliverable".  
         Submit your link after merging.  Then after the first segment is graded, we'll delete segment 1 branches to keep the repo clean.
 
+    If github says there is a conflict...see if you can figure out what it is and resolve it?  Obviously none of us have done this before, so I don't exactly know what happens if there's a conflict.
+        If you've duplicated a file like the ones I mentioned above or something, 
+        just delete/rename/put in your own scratch folder to clean the conflict.
+        If you can't figure out what the conflict is, reach out on slack and let's all brainstorm.
+
     After merging, go to gitbash/terminal and do <git checkout main> to switch back to Main on your local repo, git pull to update your Main
 
     Do not create a new branch for the next segment yet!  Wait for all branches to be merged, 
