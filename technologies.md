@@ -44,7 +44,6 @@ Traffic_analysis_df will need further cleaning on 'temp' ID column. Our data ori
 To have a graphical representation of our datasets, we will create an entity-relationship diagram (ERD) in pgAdmin. ERD enables us to design and visualize our database tables. This will also ensure we clearly label data columns.  
 
 ## Database Storage
-~~PostgreSQL's pgAdmin will be the database we intend to use, and we will integrate Tableau to display the data.~~
 
 pgAdmin is an open source database which provides a powerful graphical interface that can be used to create, maintain, and use our datadase objects. Our team felt pgAdmin was the best fit for our project in both data storage and creating a entity-relationship diagram (ERD). The ERD will provide a graphical representation of our database tables, columns, and their inter-relationships (Primary and Foreign Keys). 
 
