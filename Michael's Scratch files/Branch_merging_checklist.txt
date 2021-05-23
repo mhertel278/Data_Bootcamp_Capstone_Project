@@ -4,7 +4,7 @@
 
     If you have any draft files, scratch work like the 'First draft.ipynb' file robert slacked out, that you want to keep in the repo for future analysis,
     create a subfolder called '<your name> scratch' or something like that to avoid clutter in the repo, or just remove such files from your repo folder if you don't need them any more
-    so they don't get pushed.
+    so they don't get pushed.  Later on we'll delete these scratch folders to tidy everything up, but for now keeping stuff may be handy.
         Since Robert used the raw data set files to read in and start cleaning, let's say Robert adds those files to his branch, and the rest of remove those from our branch.
         Once Robert merges his branch, the raw data files will be in main for all of us to use in the future for more data exploring, cleaning, etc.
     
