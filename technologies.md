@@ -16,16 +16,44 @@ The following programming languages and libraries were used in order to create o
 - Matplotlib
 
 ## Data Cleaning and Analysis
-*Pandas will be used to clean the data and perform an exploratory analysis. Further analysis will be completed using Python.*
+### Data Cleaning
+Python pandas, scikit-learn, and TensorFlow will be used to clean and perform an exploratory data analysis. In addition, we will also use matplotlib.plot for visualizations while cleaning and exploring the data. 
 
+Once the dependencies are imported, the Metro_Interstate_Traffic_Volume.csv **(rename)** will be imported and read using the pandas.read_csv() into the DataFrame as Traffic_analysis_df. The 2014-2020_AllUserData_4Website.xlsx **(rename)** will also be imported and read into the DataFrame as bike_df. However, an additional pandas library, ExcelWriter and ExcelFile, is required to read the excel file. 
+
+Next, we will drop any non-benefical ID columns from both DataFrames.
+
+- Two ID columns will be dropped from Traffic_analysis.df
+    1. weather_main
+    2. weather_description
+- Eight ID columns will be dropped from bike_df.
+    1. site
+    2. agency
+    3. lat
+    4. long
+    5. city
+    6. mndot_district
+    7. doy
+    8. imputed
+
+Then in our Traffic_analysis_df, we will import Datetime from pandas to split and convert data_time into two separate columns, date and time_of_day. Further utilizing the variety of pandas libraries, we till import Calendar to determine and add day of the week. This will provide an additional variable when creating our dashboard.
+
+Traffic_analysis_df will need further cleaning on 'temp' ID column. Our data originally stored the temperature vairables in Kelvin, which explains the high temperatures. Our team will convert 'temp' from Kelvin to Fahrenheit for better understanding amongst our audience. 
+
+### Database Schema
+To have a graphical representation of our datasets, we will create an entity-relationship diagram (ERD) in pgAdmin. ERD enables us to design and visualize our database tables. This will also ensure we clearly label data columns.  
 
 ## Database Storage
-*Mongo is the database we intend to use, and we will integrate Flask to display the data.*
+~~PostgreSQL's pgAdmin will be the database we intend to use, and we will integrate Tableau to display the data.~~
 
+pgAdmin is an open source database which provides a powerful graphical interface that can be used to create, maintain, and use our datadase objects. Our team felt pgAdmin was the best fit for our project in both data storage and creating a entity-relationship diagram (ERD). The ERD will provide a graphical representation of our database tables, columns, and their inter-relationships (Primary and Foreign Keys). 
 
 ## Machine Learning
-*SciKitLearn is the ML library we'll be using to create a classifier. Our training and testing setup is ___. Extra ML verbiage here.*
+Since our target is bike volume, our machine learning model will predict a continuous value. A Deep Learning model with neural networks will be used since we are using regression data. Scikit-learn is the ML library our team determined is the best fit for our analysis project. Scikit-learn aids us in creating our deep learning model by featuring algorithums, such as support vector machine (SVM), and supporting matplotlib. 
+
+Fitting the model to train data and test the model will be setup in TensorFlow.
+
 
 
 ## Dashboard
-*In addition to using a Flask template, we will also integrate D3.js for a fully functioning and interactive dashboard. It will be hosted on ___.*
+Our team felt Tableau would be an effective tool for developing a dashboard into our project. In addition to using a Tableua template, we will also integrate D3.js for a fully functioning and interactive dashboard. 
