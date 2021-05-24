@@ -18,7 +18,9 @@ Metro_Interstate_Traffic_Volume.csv is from the UC Irvine Machine Learning Repos
 Next, we selected the 2014-2020_AllUserData_4Website.xlsx from the Minnesota Department of Transporation (MnDoT):
     https://www.dot.state.mn.us/bike-ped-counting/reports.html
 
-Although both datasets are structured files, they still contain messy and non-benefical characteristics. We will use neural networks to effectively detect complex nonlinear relationships between the two datasets to answer our questions. Our team will use the following technologies and processes listed in the technologies.md to conduct our machine learning project.
+Although both datasets are structured files, they still contain messy and non-benefical characteristics. We will use neural networks to effectively detect complex nonlinear relationships between the two datasets to answer our questions. Our team will use the following technologies and processes listed in the technologies.md to conduct our machine learning project. Both Metro_Interstate_Traffic_Volume.csv and 2014-2020_AllUserData_4Website.xlsx files will represent the database to connect to the Vandivort_segment_machine_learning.ipynb, which is our Machine Learning model.
+
+To establish the Provisional Database, our team utilized and tranformed our orginial .xlsx file into the biking_provisional_db.xlsx. The biking_provisional_db.xlsx will represent our project's future database structure.
 
 ## Communication Protocols
 Our team is utilizing Slack as our primary communication platform. Zoom calls are made as needed to discuss topics and project direction.
