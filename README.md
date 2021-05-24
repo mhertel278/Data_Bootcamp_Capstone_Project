@@ -20,9 +20,10 @@ Next, we selected the 2014-2020_AllUserData_4Website.xlsx from the Minnesota Dep
 
 Although both datasets are structured files, they still contain messy and non-benefical characteristics. We will use neural networks to effectively detect complex nonlinear relationships between the two datasets to answer our questions. Our team will use the following technologies and processes listed in the technologies.md to conduct our machine learning project. 
 
-### Provisional Database
+### Machine Learning Model
 Both Metro_Interstate_Traffic_Volume.csv and 2014-2020_AllUserData_4Website.xlsx files will represent the database to connect to the Vandivort_segment_machine_learning.ipynb, which is our Machine Learning model.
 
+### Provisional Database
 To establish the Provisional Database, our team utilized and tranformed our orginial .xlsx file into the biking_provisional_db.xlsx. The biking_provisional_db.xlsx will represent our project's future database structure.
 
 ## Communication Protocols
