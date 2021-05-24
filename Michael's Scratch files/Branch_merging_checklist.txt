@@ -1,0 +1,35 @@
+    Files for submission (files acting as provisional database, machine learning script, technology.md) are clearly named and easy to find __
+        Double check that Column names/Table layouts match across the ERD, Provisional Database files, File the Machine Learning reads in  before merging
+        Double check to make sure file names listed in the README match those for the provisional database and the machine learning file so the graders can find them easily.
+
+    If you have any draft files, scratch work like the 'First draft.ipynb' file robert slacked out, that you want to keep in the repo for future analysis,
+    create a subfolder called '<your name> scratch' or something like that to avoid clutter in the repo, or just remove such files from your repo folder if you don't need them any more
+    so they don't get pushed.  Later on we'll delete these scratch folders to tidy everything up, but for now keeping stuff may be handy.
+        Since Robert used the raw data set files to read in and start cleaning, let's say Robert adds those files to his branch, and the rest of remove those from our branch.
+        Once Robert merges his branch, the raw data files will be in main for all of us to use in the future for more data exploring, cleaning, etc.
+    
+        For the provisional dataset files, Ryan will add those to his branch, so if you have a copy of his CSV/Excel files or ERD, remove those from your branch so they don't clash with his.
+
+    Make sure you have at least 4 commits before merging  
+        (was working on this document earlier, but by now just about all of us have at least 4, so this shouldn't be a problem)
+    
+    Check the rubric to make sure all tasks for your branch are completed and addressed before merging.  Any doubt if you're covered, slack out an inquiry.
+    
+    When ready to merge, go to your branch and click Compare & pull request, comment with tasks you did on your branch, files created, etc.
+    
+    If github says there are no conflicts with main, click Merge Pull Request to Merge branch, but do not delete your branch yet.
+        We have to submit the links to our individual branches in the module "Module 20 First Segment Project Deliverable".  
+        Submit your link after merging.  Then after the first segment is graded, we'll delete segment 1 branches to keep the repo clean.
+
+    If github says there is a conflict...see if you can figure out what it is and resolve it?  Obviously none of us have done this before, so I don't exactly know what happens if there's a conflict.
+        If you've duplicated a file like the ones I mentioned above or something, 
+        just delete/rename/put in your own scratch folder to clean the conflict.
+        If you can't figure out what the conflict is, reach out on slack and let's all brainstorm.
+
+    After merging, go to gitbash/terminal and do <git checkout main> to switch back to Main on your local repo, git pull to update your Main
+
+    Do not create a new branch for the next segment yet!  Wait for all branches to be merged, 
+        then we all get pull Main to be up to date with end of segment before creating next branch.
+        That way we'll all be up date  on Main when we finally do create branches for next week
+    
+    
