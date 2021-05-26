@@ -32,7 +32,7 @@ CREATE TABLE raw_bike_pedestrian_traffic(
 	total_yearly_imputed_days INT,
 	facility_type VARCHAR(30),
 	on_off_road VARCHAR(3),
-	install_year DATE,
+	install_year INT,
 	trunk_hwy VARCHAR(3),
 	us_bikeroute VARCHAR(8),
 	device VARCHAR(15),
