@@ -1,3 +1,9 @@
+/*
+
+Creating empty tables and loading raw data
+
+*/
+
 -- create empty table for raw vehicle traffic dataset
 CREATE TABLE raw_vehicle_traffic(
 	holiday VARCHAR(40) NOT NULL,
@@ -41,3 +47,53 @@ CREATE TABLE raw_bike_pedestrian_traffic(
 	
 				
 );
+
+-----------------------------------------------------------------------------------------------------
+
+/*
+
+Creating clean tables
+
+*/
+
+-- create vehicle table with converted temp, renamed columns, dropped descriptive columns,
+-- added date column and time column
+
+SELECT holiday
+	, (temp - 273.15)* 9/5 +32 as temp_F
+	, rain_1h as rain_in_mm
+	, snow_1h as snow_in_mm
+	, clouds_all as cloud_percent
+	, traffic_volume as vehicle_volume
+	, date_time :: date AS date
+	, date_time :: time AS time_of_day
+	
+
+FROM raw_vehicle_traffic
+;
+
+-- check for duplicate date_time records in raw_vehicle_traffic table
+WITH RowNumCTE AS(
+SELECT *,
+	ROW_NUMBER() OVER(
+	PARTITION BY temp
+					
+					, rain_1h
+					, snow_1h
+					, clouds_all
+					, date_time
+					, traffic_volume
+						 ) row_num
+FROM raw_vehicle_traffic
+)
+SELECT *
+FROM RowNumCTE
+-- WHERE row_num > 1
+;
+
+--confirm duplicate date times have same concrete values, just different descriptive columns
+SELECT *
+	, COUNT (date_time) OVER (PARTITION BY date_time) AS record_count
+FROM raw_vehicle_traffic
+ORDER BY record_count DESC, date_time
+;
