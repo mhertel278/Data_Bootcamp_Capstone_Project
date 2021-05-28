@@ -56,22 +56,6 @@ Creating clean tables
 
 */
 
--- create vehicle table with converted temp, renamed columns, dropped descriptive columns,
--- added date column and time column
-
-SELECT holiday
-	, (temp - 273.15)* 9/5 +32 as temp_F
-	, rain_1h as rain_in_mm
-	, snow_1h as snow_in_mm
-	, clouds_all as cloud_percent
-	, traffic_volume as vehicle_volume
-	, date_time :: date AS date
-	, date_time :: time AS time_of_day
-	
-
-FROM raw_vehicle_traffic
-;
-
 -- check for duplicate date_time records in raw_vehicle_traffic table
 WITH RowNumCTE AS(
 SELECT *,
@@ -96,4 +80,43 @@ SELECT *
 	, COUNT (date_time) OVER (PARTITION BY date_time) AS record_count
 FROM raw_vehicle_traffic
 ORDER BY record_count DESC, date_time
+;
+-- create clean vehicle table dropping duplicate date_times, converted temp to F, renamed columns, dropped descriptive columns,
+-- added date column and time column
+
+SELECT DISTINCT date_time --as unique_date_time
+	, holiday
+	, (temp - 273.15)* 9/5 + 32 as temp_F
+	, rain_1h as rain_in_mm
+	, snow_1h as snow_in_mm
+	, clouds_all as cloud_percent
+	, traffic_volume as vehicle_volume
+ 	, date_time :: date AS date
+ 	, date_time :: time AS time_of_day
+INTO clean_vehicle_traffic
+FROM raw_vehicle_traffic
+;
+
+--confirm duplicate date times have been dropped
+SELECT *
+	, COUNT (date_time) OVER (PARTITION BY date_time) AS record_count
+FROM clean_vehicle_traffic
+
+ORDER BY record_count DESC, date_time
+
+;
+
+-- group by date_time and avg weather and traffic columns to get unique entry per date_time
+SELECT date_time 
+-- 	, holiday
+	, AVG(temp_f) as avg_temp_f_hourly
+	, AVG(rain_in_mm) as avg_rain_in_mm_hourly
+	, AVG(snow_in_mm) as avg_snow_in_mm_hourly
+	, AVG(cloud_percent) as avg_cloud_percent_hourly
+	, FLOOR(AVG(vehicle_volume)) as vehicle_volume
+	, date_time :: date AS date
+ 	, date_time :: time AS time_of_day
+FROM clean_vehicle_traffic
+GROUP BY date_time
+ORDER BY avg_snow_in_mm_hourly DESC
 ;
