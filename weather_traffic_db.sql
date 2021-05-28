@@ -91,8 +91,8 @@ SELECT DISTINCT date_time --as unique_date_time
 	, snow_1h as snow_in_mm
 	, clouds_all as cloud_percent
 	, traffic_volume as vehicle_volume
- 	, date_time :: date AS date
- 	, date_time :: time AS time_of_day
+ 	-- , date_time :: date AS date
+ 	-- , date_time :: time AS time_of_day
 INTO clean_vehicle_traffic
 FROM raw_vehicle_traffic
 ;
