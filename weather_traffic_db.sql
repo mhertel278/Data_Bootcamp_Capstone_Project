@@ -209,3 +209,8 @@ WITH VehicleCTE AS(  -- CTE to aggregate vehicle set on date
 	LEFT JOIN holiday h
 		ON v.date = h.date
 	;
+
+-- show machine learning set
+SELECT * 
+FROM machine_learning_set
+;
