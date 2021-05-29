@@ -52,7 +52,7 @@ CREATE TABLE raw_bike_pedestrian_traffic(
 
 /*
 
-Creating clean tables
+Creating clean tables from raw_vehicle_traffic table
 
 */
 
@@ -81,6 +81,7 @@ SELECT *
 FROM raw_vehicle_traffic
 ORDER BY record_count DESC, date_time
 ;
+
 -- create clean vehicle table dropping duplicate date_times, converted temp to F, renamed columns, dropped descriptive columns,
 -- added date column and time column
 
@@ -109,6 +110,7 @@ ORDER BY record_count DESC, date_time
 -- still have some duplicate date_time entries:
 -- group by date_time and avg weather and traffic columns to 
 -- create table with unique entry per date_time
+
 SELECT date_time 
 
 	, AVG(temp_f) as avg_temp_f_hourly
@@ -134,7 +136,6 @@ Clean holidays to solve for some dates saying None when it is a holiday
 
 -- determine if all date_times that are holidays have the holiday named
 
--- create CTE for holiday, date from raw_vehicle_traffic
 WITH holidayCTE as (
 SELECT holiday, date_time::date as date
 FROM raw_vehicle_traffic
@@ -176,134 +177,40 @@ FROM
 
 ;
 
+
 /*
 
-Create tables from raw_bike_pedestrian_traffic
+-- join cleaner vehicle table grouped by date, bike_pedestrian table grouped by date for Ramsey county
+-- holiday tables to create machine learning dataset
 
 */
 
--- create table of city, county, district
 
-SELECT DISTINCT city
-	, county
-	, mndot_district
-INTO bike_city
-FROM raw_bike_pedestrian_traffic
-ORDER BY city;
-
--- create table of sites
-
-SELECT DISTINCT site
-	, lat
-	, long
-	, city
-	, facility_type
-	, on_off_road
-	, install_year
-	, trunk_hwy
-	, us_bikeroute
-	, direction
-	, device
-	, technology
-INTO bike_site
-FROM raw_bike_pedestrian_traffic
-ORDER BY site
-;
-
-
-
-
-
-
-
-SELECT *
-FROM raw_bike_pedestrian_traffic;
-
-SELECT DISTINCT city
-	, county
-	, mndot_district
- 
-INTO bike_city
-FROM raw_bike_pedestrian_traffic
-ORDER BY city;
-
-SELECT DISTINCT site
-	, lat
-	, long
-	, city
-	, facility_type
-	, on_off_road
-	, install_year
-	, trunk_hwy
-	, us_bikeroute
-	, direction
-	, device
-	, technology
-INTO bike_site
-FROM raw_bike_pedestrian_traffic
-ORDER BY site
-;
-SELECT DISTINCT site
-, facility_type
-, device
-, technology
-FROM raw_bike_pedestrian_traffic;
-
-SELECT *
-from bike_district
-
-DROP TABLE bike_site;
-
-SELECT site
-	, mode
-	, date_day
-	, doy
-	, total
-	, prcp
-	, tmax
-	, imputed
-	, total_yearly_imputed_days
-	
-FROM raw_bike_pedestrian_traffic;
-
-SELECT s.site
-	, s.lat
-	, s.long
-	, s.city
-	, c.county
-FROM bike_site s
-JOIN bike_city c
-	on s.city = c.city
--- WHERE c.county = 'Ramsey'
-;
-
-WITH VehicleCTE AS(
+WITH VehicleCTE AS(  -- CTE to aggregate vehicle set on date
 SELECT AVG(avg_temp_f_hourly) as avg_temp_f_daily
 	, SUM(avg_rain_in_mm_hourly) as total_rain_mm_daily
 	, SUM(avg_snow_in_mm_hourly) as total_snow_mm_daily
-	, AVG(avg_cloud_percent_hourly) as avg_cloud_daily
+	, AVG(avg_cloud_percent_hourly) as avg_cloud_percent_daily
 	, SUM(vehicle_volume) as total_vehicle_volume_daily
 	, date
 FROM cleaner_vehicle_traffic
 GROUP BY date
-
 )
 
-WITH BikeCTE AS (
-SELECT SUM(total) as non_vehicle_volume_daily
-	, date
-FROM raw_bike_pedestrian_traffice
-GROUP BY date
-WHERE COUNTY = 'Ramsey'
-	
-	
-	
-	
-SELECT b.total
+, BikeCTE AS (  -- CTE to aggregate bike and pedestrian volume totals for Ramsey county
+SELECT SUM(total) as total
+	, date_day
+FROM raw_bike_pedestrian_traffic
+WHERE county = 'Ramsey'
+GROUP BY date_day
+)
 
+
+SELECT b.total as daily_non_vehicle_traffic  -- join the aggregated vehicle and bike sets on common date
 	, v.*
- 	, COALESCE(h.holiday, 'none') as holiday
-FROM raw_bike_pedestrian_traffic b
+ 	, COALESCE(h.holiday, 'none') as holiday -- create label 'none' if not a holiday
+INTO machine_learning_set
+FROM BikeCTE b
 INNER JOIN VehicleCTE v
 		on b.date_day = v.date
 LEFT JOIN holiday h
