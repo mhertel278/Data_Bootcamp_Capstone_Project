@@ -14,9 +14,7 @@ CREATE TABLE raw_vehicle_traffic(
 	weather_main VARCHAR(15) NOT NULL,
 	weather_description VARCHAR(40) NOT NULL,
 	date_time TIMESTAMP NOT NULL,
-	traffic_volume INT NOT NULL
-	
-	
+	traffic_volume INT NOT NULL	
 );
 
 -- IMPORT CSV: Metro_Interstate_Traffic_Volume.csv to populate raw_vehicle_traffic table
@@ -45,9 +43,7 @@ CREATE TABLE raw_bike_pedestrian_traffic(
 	us_bikeroute VARCHAR(8),
 	device VARCHAR(15),
 	direction VARCHAR(15),
-	technology VARCHAR(30)
-	
-				
+	technology VARCHAR(30)				
 );
 
 -- IMPORT CSV: 2014-2020_AllUserData_4Website.csv to populate raw_bike_pedestrian_traffic table
@@ -106,9 +102,7 @@ FROM raw_vehicle_traffic
 SELECT *
 	, COUNT (date_time) OVER (PARTITION BY date_time) AS record_count
 FROM clean_vehicle_traffic
-
 ORDER BY record_count DESC, date_time
-
 ;
 
 -- still have some duplicate date_time entries:
@@ -116,7 +110,6 @@ ORDER BY record_count DESC, date_time
 -- create table with unique entry per date_time
 
 SELECT date_time 
-
 	, AVG(temp_f) as avg_temp_f_hourly
 	, AVG(rain_in_mm) as avg_rain_in_mm_hourly
 	, AVG(snow_in_mm) as avg_snow_in_mm_hourly
@@ -128,7 +121,6 @@ INTO cleaner_vehicle_traffic
 FROM clean_vehicle_traffic
 GROUP BY date_time
 ORDER BY date_time
-
 ;
 
 /*
@@ -153,7 +145,6 @@ WITH holidayCTE as (
 	JOIN holidayCTE b
 		on a.date = b.date
 		AND a.holiday != b.holiday--) holiday_match
-
 	ORDER BY a_date
 	;
 
@@ -178,7 +169,6 @@ WITH holidayCTE as (
 			AND a.holiday != b.holiday
 		WHERE a.holiday!= 'None'
 		ORDER BY a_date) holiday_match
-
 	;
 
 
@@ -202,7 +192,6 @@ WITH VehicleCTE AS(  -- CTE to aggregate vehicle set on date
 	FROM cleaner_vehicle_traffic
 	GROUP BY date
 	)
-
 	, BikeCTE AS (  -- CTE to aggregate bike and pedestrian volume totals for Ramsey county
 	SELECT SUM(total) as total
 		, date_day
@@ -210,8 +199,6 @@ WITH VehicleCTE AS(  -- CTE to aggregate vehicle set on date
 	WHERE county = 'Ramsey'
 	GROUP BY date_day
 	)
-
-
 	SELECT b.total as daily_non_vehicle_traffic  -- join the aggregated vehicle and bike sets on common date
 		, v.*
 		, COALESCE(h.holiday, 'none') as holiday -- create label 'none' if not a holiday
