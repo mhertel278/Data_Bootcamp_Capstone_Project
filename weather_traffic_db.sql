@@ -175,3 +175,37 @@ FROM
 	ORDER BY a_date) holiday_match
 
 ;
+
+/*
+
+Create tables from raw_bike_pedestrian_traffic
+
+*/
+
+-- create table of city, county, district
+
+SELECT DISTINCT city
+	, county
+	, mndot_district
+INTO bike_city
+FROM raw_bike_pedestrian_traffic
+ORDER BY city;
+
+-- create table of sites
+
+SELECT DISTINCT site
+	, lat
+	, long
+	, city
+	, facility_type
+	, on_off_road
+	, install_year
+	, trunk_hwy
+	, us_bikeroute
+	, direction
+	, device
+	, technology
+INTO bike_site
+FROM raw_bike_pedestrian_traffic
+ORDER BY site
+;
