@@ -19,6 +19,8 @@ CREATE TABLE raw_vehicle_traffic(
 	
 );
 
+-- IMPORT CSV: Metro_Interstate_Traffic_Volume.csv to populate raw_vehicle_traffic table
+
 -- create empty table for raw bike/pedestrian traffic
 CREATE TABLE raw_bike_pedestrian_traffic(
 	site VARCHAR,
@@ -47,6 +49,8 @@ CREATE TABLE raw_bike_pedestrian_traffic(
 	
 				
 );
+
+-- IMPORT CSV: 2014-2020_AllUserData_4Website.csv to populate raw_bike_pedestrian_traffic table
 
 -----------------------------------------------------------------------------------------------------
 
@@ -193,6 +197,8 @@ SELECT AVG(avg_temp_f_hourly) as avg_temp_f_daily
 	, AVG(avg_cloud_percent_hourly) as avg_cloud_percent_daily
 	, SUM(vehicle_volume) as total_vehicle_volume_daily
 	, date
+	, EXTRACT(MONTH FROM date) as month
+	, EXTRACT(DOW FROM date) as day_of_week
 FROM cleaner_vehicle_traffic
 GROUP BY date
 )
