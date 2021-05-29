@@ -209,3 +209,103 @@ INTO bike_site
 FROM raw_bike_pedestrian_traffic
 ORDER BY site
 ;
+
+
+
+
+
+
+
+SELECT *
+FROM raw_bike_pedestrian_traffic;
+
+SELECT DISTINCT city
+	, county
+	, mndot_district
+ 
+INTO bike_city
+FROM raw_bike_pedestrian_traffic
+ORDER BY city;
+
+SELECT DISTINCT site
+	, lat
+	, long
+	, city
+	, facility_type
+	, on_off_road
+	, install_year
+	, trunk_hwy
+	, us_bikeroute
+	, direction
+	, device
+	, technology
+INTO bike_site
+FROM raw_bike_pedestrian_traffic
+ORDER BY site
+;
+SELECT DISTINCT site
+, facility_type
+, device
+, technology
+FROM raw_bike_pedestrian_traffic;
+
+SELECT *
+from bike_district
+
+DROP TABLE bike_site;
+
+SELECT site
+	, mode
+	, date_day
+	, doy
+	, total
+	, prcp
+	, tmax
+	, imputed
+	, total_yearly_imputed_days
+	
+FROM raw_bike_pedestrian_traffic;
+
+SELECT s.site
+	, s.lat
+	, s.long
+	, s.city
+	, c.county
+FROM bike_site s
+JOIN bike_city c
+	on s.city = c.city
+-- WHERE c.county = 'Ramsey'
+;
+
+WITH VehicleCTE AS(
+SELECT AVG(avg_temp_f_hourly) as avg_temp_f_daily
+	, SUM(avg_rain_in_mm_hourly) as total_rain_mm_daily
+	, SUM(avg_snow_in_mm_hourly) as total_snow_mm_daily
+	, AVG(avg_cloud_percent_hourly) as avg_cloud_daily
+	, SUM(vehicle_volume) as total_vehicle_volume_daily
+	, date
+FROM cleaner_vehicle_traffic
+GROUP BY date
+
+)
+
+WITH BikeCTE AS (
+SELECT SUM(total) as non_vehicle_volume_daily
+	, date
+FROM raw_bike_pedestrian_traffice
+GROUP BY date
+WHERE COUNTY = 'Ramsey'
+	
+	
+	
+	
+SELECT b.total
+
+	, v.*
+ 	, COALESCE(h.holiday, 'none') as holiday
+FROM raw_bike_pedestrian_traffic b
+INNER JOIN VehicleCTE v
+		on b.date_day = v.date
+LEFT JOIN holiday h
+	ON v.date = h.date
+;
