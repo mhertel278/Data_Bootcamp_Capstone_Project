@@ -106,17 +106,72 @@ ORDER BY record_count DESC, date_time
 
 ;
 
--- group by date_time and avg weather and traffic columns to get unique entry per date_time
+-- still have some duplicate date_time entries:
+-- group by date_time and avg weather and traffic columns to 
+-- create table with unique entry per date_time
 SELECT date_time 
--- 	, holiday
+
 	, AVG(temp_f) as avg_temp_f_hourly
 	, AVG(rain_in_mm) as avg_rain_in_mm_hourly
 	, AVG(snow_in_mm) as avg_snow_in_mm_hourly
-	, AVG(cloud_percent) as avg_cloud_percent_hourly
+	, ROUND(AVG(cloud_percent), 1) as avg_cloud_percent_hourly
 	, FLOOR(AVG(vehicle_volume)) as vehicle_volume
 	, date_time :: date AS date
  	, date_time :: time AS time_of_day
+INTO cleaner_vehicle_traffic
 FROM clean_vehicle_traffic
 GROUP BY date_time
-ORDER BY avg_snow_in_mm_hourly DESC
+ORDER BY date_time
+
+;
+
+/*
+
+Clean holidays to solve for some dates saying None when it is a holiday
+
+
+*/
+
+-- determine if all date_times that are holidays have the holiday named
+
+-- create CTE for holiday, date from raw_vehicle_traffic
+WITH holidayCTE as (
+SELECT holiday, date_time::date as date
+FROM raw_vehicle_traffic
+) 
+-- JOIN the CTE to itself where dates are same but holiday is not
+SELECT a.holiday as a_holiday
+	, a.date as a_date
+	, b.holiday as b_holiday
+	, b.date as b_date
+FROM holidayCTE a
+JOIN holidayCTE b
+	on a.date = b.date
+	AND a.holiday != b.holiday--) holiday_match
+
+ORDER BY a_date
+;
+
+
+-- select distinct holiday and date from above query where holiday is not 'None' 
+-- to create table of dates that are holidays
+WITH holidayCTE as (
+SELECT holiday, date_time::date as date
+FROM raw_vehicle_traffic
+) 
+SELECT DISTINCT a_holiday as holiday
+	, a_date as date
+INTO holiday
+FROM
+	(SELECT a.holiday as a_holiday
+		, a.date as a_date
+		, b.holiday as b_holiday
+		, b.date as b_date
+	FROM holidayCTE a
+	JOIN holidayCTE b
+		on a.date = b.date
+		AND a.holiday != b.holiday
+	WHERE a.holiday!= 'None'
+	ORDER BY a_date) holiday_match
+
 ;
