@@ -2,34 +2,47 @@
 Capstone project for UT Austin Data Bootcamp group 2
 
 ## Selected Topic:
-Predict bike traffic based on weather and vehicle traffic.
+We chose to analyze car, pedestrian, and bike traffic data collected  in Ramsey County Minnesota from June 2015 to September 2018. 
 
 ## Reason for Selected Topic:
-The purpose of this analysis is to discover bike traffic patterns and trends on any given day in Minnesota. We aim to visualize the effects weather and day of the week have on bike and traffic volumes through utilization of deep learning and neural networks.
+We are interested in  how weather, day of the week, time of year and holidays affected commuters’ preferred method of transportation. 
 
 ## Source of Data
-To begin our begin our machine learning project, our team select two datasets: 
-- Metro_Interstate_Traffic_Volume.csv
-- 2014-2020_AllUserData_4Website.xlsx 
+Our car, pedestrian and bike data came from the Minnesota Department of Transportation. 
+Our weather data came from OpenWeatherMap. 
+The original datasets can be found at the links below: 
 
-Metro_Interstate_Traffic_Volume.csv is from the UC Irvine Machine Learning Repository website:
-    https://archive.ics.uci.edu/ml/datasets/Metro+Interstate+Traffic+Volume#
+https://archive.ics.uci.edu/ml/datasets/Metro+Interstate+Traffic+Volume#
+https://www.dot.state.mn.us/bike-ped-counting/reports.html
 
-Next, we selected the 2014-2020_AllUserData_4Website.xlsx from the Minnesota Department of Transporation (MnDoT):
-    https://www.dot.state.mn.us/bike-ped-counting/reports.html
+Although these datasets are structured files, they still contain messy and non-benefical characteristics. We will use a linear regression machine learning model to effectively detect complex relationships between information contained the two datasets. 
 
-Although both datasets are structured files, they still contain messy and non-benefical characteristics. We will use neural networks to effectively detect complex nonlinear relationships between the two datasets to answer our questions. Our team will use the following technologies and processes listed in the technologies.md to conduct our machine learning project. 
+## Technologies Used
+Our team will use the following technologies and processes listed in the technologies.md to conduct our machine learning project. 
 
-### Machine Learning Model
-Both Metro_Interstate_Traffic_Volume.csv and 2014-2020_AllUserData_4Website.xlsx files will represent the database to connect to the Vandivort_segment_machine_learning.ipynb, which is our Machine Learning model.
+## Questions We Hope to Answer
+- How does commuter behavior change given the day of the week and time of year? 
+- How do weather conditions affect commuter behavior? 
+- Can we predict non-vehile (bikers + walkers) traffic on a given day assuming vehicle traffic and weather conditions? 
 
-### Provisional Database
-To establish the Provisional Database, our team utilized and tranformed our orginial .xlsx file into the biking_provisional_db.xlsx. The biking_provisional_db.xlsx will represent our project's future database structure.
+## Data Exploration Phase
+
+## Analysis Phase
+
+## Machine Learning Model
+# Preliminary Data Preprocessing
+# Preliminary Feature Engineering and Selection
+# Train-Test-Split
+# Model Choice
+(including limitations and benefits)
+
+## Database
+(3 - 4 sentence summary from Michael)
+
+## Dashboard
+For our final Dashboard, we will use visualizations created with MatPlotLib and Tableau. 
+
+Our interactive element will consist of allowing the viewer to filter the traffic data by season, weekend or weekday. 
 
 ## Communication Protocols
-Our team is utilizing Slack as our primary communication platform. Zoom calls are made as needed to discuss topics and project direction.
-
-## Questions We Hope to Answer with the Data
-How does the weather and traffic volume effect the amount of bikers on a given day? Will there be an increase in bike traffic if the weather is sunny and low traffic volume? If there is an influx of vehicle traffic on a cloudy day, what will the bike traffic be? 
-
-This are just a few questions our team hopes to answer with the data being fed into our machine learning model. 
+Our team is utilizing Slack as our primary communication platform. Zoom calls are made as needed to discuss topics and project direction. All code is shared through a common GitHub repository. 
