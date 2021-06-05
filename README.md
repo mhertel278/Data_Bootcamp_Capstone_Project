@@ -29,13 +29,15 @@ Our team will use the following technologies and processes listed in the technol
 
 ## Analysis Phase
 
+Once the datasets had been cleaned and joined our team was able to produce initial visualizations using Seaborn. A variety of visualizations including bar charts, line graphs, scatter plots, swarm graphs, and linear regression plots, allowed us to identify outliers and decide what inputs were crucial and which ones just created noise. As a second step new visualizations were created in Tableau to include in the final dashboard as well as make some of the visualizations interactive. 
+
 ## Database
 (3 - 4 sentence summary from Michael)
 
 ## Machine Learning Model
 # Preliminary Data Preprocessing 
 
-After our database was connected to our machine learning model, several steps were taken to preprocess the data. In order to make the dataset more compatible with the model, we dropped the date column, as it only contained unique values.  We also dropped a row that contained an extreme outlier.  We scaled the data, and ran the machine learning model with both scaled and unscaled data. We discovered that scaling our data did not make any difference to the accuracy score in this model. 
+After our database was connected to our machine learning model, several steps were taken to preprocess the data. In order to make the dataset more compatible with the model, we dropped the date column, as it only contained unique values.  We also dropped a row that contained an extreme outlier.  We converted the entries in the 'Holiday' column from strings into integers so that the model could process the entries. We scaled the data, and ran the machine learning model with both scaled and unscaled data. We discovered that scaling our data did not make any difference to the accuracy score in this model. 
 
 # Preliminary Feature Engineering and Selection
 
@@ -50,9 +52,26 @@ To test the accuracy of our machine learning model, we separated our dataset int
 We decided to use linear regression for our machine learning model. Linear regression works well in this scenario because we are attempting to predict the number of non-vehicle commuters on a given day (our target variable). This number is a continuous variable, which is what linear regression models predict. A limitation of a linear regression model is that it can only predict continuous variables. It cannot predict discreet values like a classification machine learning model. Another limitation of linear regression models is that they are especially sensitive to outliers. As stated above, we dropped our extreme outlier in order to make the model more accurate. 
 
 ## Dashboard
-For our final Dashboard, we will use visualizations created with MatPlotLib and Tableau. 
+For our final Dashboard, we will use visualizations created with Seaborn and Tableau. 
 
-Our interactive element will consist of allowing the viewer to filter the traffic data by season, weekend or weekday. 
+Interactive elements include the ability to filter by month, data inputs, and holidays. The interactive element is a filter legend built into several of the Tableau visualizations. 
+
+Visualization files:
+Non_Vehicle_Traffic_by_Day_of_Week.png
+Vehicle_vs_Non_Vehicle_Sorted_by_Snow_Totals.png
+Vehicle_vs_Non_Vehicle_Filtered_by_Month.png
+Vehicle_vs_Non_Vehicle_Volumes_by_Rain_Totals.png
+Non_Vehicle_vs_Vehicle_Sorted_by_Temp.png
+Traffic_Volume_by_Month.png
+Non_Vehicle_Traffic_by_Month.png
+Traffic_Volume_by_Day_of_Week.png
+
+Tableau Link:
+https://public.tableau.com/views/DraftofFinalProjectVisualizations/Vehiclevs_Non-VehicleTrafficFilteredbyMonth?:language=en-US&:display_count=n&:origin=viz_share_link
+
+
+The link to the Dashboard on Google Slides is found below:
+https://docs.google.com/presentation/d/1tCeESHg-k9MaFWjkYsrsxCZbY75Rz8vQ-FKmILoDWCw/edit?usp=sharing
 
 ## Communication Protocols
 Our team is utilizing Slack as our primary communication platform. Zoom calls are made as needed to discuss topics and project direction. All code is shared through a common GitHub repository. 
