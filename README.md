@@ -30,10 +30,10 @@ Our team will use the following technologies and processes listed in the technol
 ## Analysis Phase
 
 ## Machine Learning Model
-# Preliminary Data Preprocessing
-# Preliminary Feature Engineering and Selection
+# Preliminary Data Preprocessing - dropped an outlier, dropped the date column, we scaled the data and it did not make a difference with this model
+# Preliminary Feature Engineering and Selection - Feature selection examples: Drop holiday columns, drop vehicle columns, Feature engineering examples: bin days of weeks/months/holiday vs. all holidays, adding day of the week column 
 # Train-Test-Split
-# Model Choice
+# Model Choice - linear regression 
 (including limitations and benefits)
 
 ## Database
