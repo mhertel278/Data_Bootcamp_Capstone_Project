@@ -1,3 +1,7 @@
+# Machine Learning model SQL connection files
+config.py
+database.ini 
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
