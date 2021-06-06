@@ -18,9 +18,6 @@ https://www.dot.state.mn.us/bike-ped-counting/reports.html
 
 Although these datasets are structured files, they still contain messy and non-benefical characteristics. We will use a linear regression machine learning model to effectively detect relationships between information contained the two datasets. 
 
-## Technologies Used
-Our team will use the following technologies and processes listed in the technologies.md to conduct our machine learning project. 
-
 ## Questions We Hope to Answer
 - How does commuter behavior change given the day of the week and time of year? 
 - How do weather conditions affect commuter behavior? 
