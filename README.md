@@ -8,15 +8,32 @@ We chose to analyze car, pedestrian, and bike traffic data collected in Ramsey C
 We are interested in  how weather, day of the week, time of year and holidays affected commuters’ preferred method of transportation. 
 
 ## Source of Data
-Our car, pedestrian and bike data came from the Minnesota Department of Transportation. 
-Our weather data came from OpenWeatherMap. 
+Two datasets were used in our analysis. 
+The first dataset contained information on hourly traffic volume, hourly weather information, and holidays.
+The second dataset contained information on pedestrian traffic (bikers and walkers) on specific days. 
 The original datasets can be found at the links below: 
-
 https://archive.ics.uci.edu/ml/datasets/Metro+Interstate+Traffic+Volume#
-
 https://www.dot.state.mn.us/bike-ped-counting/reports.html
 
-Although these datasets are structured files, they still contain messy and non-benefical characteristics. We will use a linear regression machine learning model to effectively detect relationships between information contained the two datasets. 
+### Vehicle Traffic Data
+Our vehicle traffic dataset, compiled by the Minnesota Department of Transportation, contained hourly Westbound traffic volume for MN DoT ATR Station 301, roughly midway between Minneapolis and St. Paul, MN from October 2012 to September 2018. 
+
+The traffic dataset contained the date, time and the number of vehicles that passed by Station 301 every hour.  
+
+### Weather and Holiday Data
+The vehicle traffic data was combined with the corresponding weather data for each hour of each day.
+
+The weather data was obtained from OpenWeathmap, and contained information on the following: average temperature, rainfall, snowfall, cloudcover, and columns for textual descriptions of the weather. 
+
+The holiday column contained information national holidays, plus a regional holiday (MN State Fair)
+
+### Pedestrian Data
+The pedestrian data used also came from a MN Dept. of Transportation dataset. 
+
+This dataset contained information on walker and biker volume from all over the state of Minnesota from 2014 - 2020. It contained the number of pedestrians and bicyclists that went through checkpoints each day.
+
+It also contained information we didn’t need for our analysis, such as the technology used to collect the data, the type of path the walkers and bikers used, and some basic weather data. 
+
 
 ## Questions We Hope to Answer
 - How does commuter behavior change given the day of the week and time of year? 
