@@ -86,5 +86,4 @@ Our presentation as of Segment 2 can be found in the repo as Presentation.pdf
 The link to the Presentation on Google Slides is found below: 
 https://docs.google.com/presentation/d/1qK3_XEbGcECKn1S4975FJnysEMJKi50fRJiRKp0ZJbo/edit?usp=sharing
 
-## Communication Protocols
-Our team is utilizing Slack as our primary communication platform. Zoom calls are made as needed to discuss topics and project direction. All code is shared through a common GitHub repository. 
+ 
