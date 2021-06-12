@@ -72,33 +72,40 @@ To test the accuracy of our machine learning model, we separated our dataset int
 
 We decided to use linear regression for our machine learning model. Linear regression works well in this scenario because we are attempting to predict the number of non-vehicle commuters on a given day (our target variable). This number is a continuous variable, which is what linear regression models predict. A limitation of a linear regression model is that it can only predict continuous variables. It cannot predict discreet values like a classification machine learning model. Another limitation of linear regression models is that they are especially sensitive to outliers. As stated above, we dropped our extreme outlier in order to make the model more accurate. 
 
-## Dashboard
-For our final Dashboard, we will use visualizations created with Seaborn and Tableau. 
+### Model Training
 
-Interactive elements include the ability to filter by month, data inputs, and holidays. The interactive element is a filter legend built into several of the Tableau visualizations. 
+### Accuracy Score
+
+## Dashboard
+
+For our final Dashboard, we will use visualizations created with Seaborn and Tableau. Seaborn is a Python data visualization library based on matplotlib and will be used to explore the data. Data exploration will involve identifying outliers, initial patterns in the data, and identifying what variables are useful or if they just create noise for the learning model. An example of using visualizations to identify outliers can be seen below.
+
+![outlier_image](README_images/Outlier.png)
+
+Tableau is a visual analytics platform that will allow us to import are final dataset and create more vibrant and complex visualizations. In Tableau we will create several interactive bar charts, line charts and scatter plots.
+
+The interactive elements that will be used in Tableau include the ability to filter pedestrian and vehicle traffic volume by year, month, and holidays. A screen shot ofthose features can be seen below.
+
+![month_image](README_images/V_P_Month.png)
 
 Visualization files:
-Non_Vehicle_Traffic_by_Day_of_Week.png
-Vehicle_vs_Non_Vehicle_Sorted_by_Snow_Totals.png
-Vehicle_vs_Non_Vehicle_Filtered_by_Month.png
-Vehicle_vs_Non_Vehicle_Volumes_by_Rain_Totals.png
-Non_Vehicle_vs_Vehicle_Sorted_by_Temp.png
-Traffic_Volume_by_Month.png
-Non_Vehicle_Traffic_by_Month.png
-Traffic_Volume_by_Day_of_Week.png
+Outlier.PNG
+V_P_Holiday.PNG
+V_P_Month.PNG
+V_P_Rain.PNG
+V_P_Snow.PNG
+V_P_Temp.PNG
+Dashboard.PNG
 
 Tableau Link:
 https://public.tableau.com/views/DraftofFinalProjectVisualizations/Vehiclevs_Non-VehicleTrafficFilteredbyMonth?:language=en-US&:display_count=n&:origin=viz_share_link
 
 
-The link to the Dashboard on Google Slides is found below:
-https://docs.google.com/presentation/d/1tCeESHg-k9MaFWjkYsrsxCZbY75Rz8vQ-FKmILoDWCw/edit?usp=sharing
-
-The Dashboard as of Segment 2 can be found in the repo as Dashboard.pdf
+The Dashboard as of Segment 3 can be found in the repo as Dashboard.PNG
 
 ## Presentation
 
-Our presentation as of Segment 2 can be found in the repo as Presentation.pdf
+Our presentation as of Segment 3 can be found in the repo as Presentation.pdf
 
 The link to the Presentation on Google Slides is found below: 
 https://docs.google.com/presentation/d/1qK3_XEbGcECKn1S4975FJnysEMJKi50fRJiRKp0ZJbo/edit?usp=sharing
