@@ -1,0 +1,13 @@
+Images for data exploration:
+    duplicate_date_time_vehicle.png
+    - shows the duplicates that needed to be cleaned by dropping
+        descriptive columns
+    remaining_duplicate_date_time_vehicle.png
+    - shows duplicates handeled by averaging disparate readings
+    incorrectly_labelled_holiday_table.png
+    - shows that holidays weren't applied to every hour of a day
+        that was a holidays
+
+Images for Machine Learning
+    Preprocessing:
+        rain_outlier.png
