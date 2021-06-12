@@ -89,12 +89,19 @@ The interactive elements that will be used in Tableau include the ability to fil
 ![month_image](README_images/V_P_Month.png)
 
 Visualization files:
+
 Outlier.PNG
+
 V_P_Holiday.PNG
+
 V_P_Month.PNG
+
 V_P_Rain.PNG
+
 V_P_Snow.PNG
+
 V_P_Temp.PNG
+
 Dashboard.PNG
 
 Tableau Link:
