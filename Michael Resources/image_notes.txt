@@ -11,3 +11,16 @@ Images for data exploration:
 Images for Machine Learning
     Preprocessing:
         rain_outlier.png
+    Feature selection and engineering:
+        holiday_pedestrian_traffic_chart.png
+        - shows each holiday has different effect on traffic,
+            so they should not be grouped into 'holiday' or 'none'
+        weekdays_pedestrian_chart.png
+        - shows traffic fairly even over all weekdays, different on weekend,
+            so should be grouped into 'weekday' and 'weekend'
+        
+Images for Model testing
+    Scores for the initial model design:
+        initial_model_score.png
+    Final scores after engineering features:
+        optimized_model_score.png

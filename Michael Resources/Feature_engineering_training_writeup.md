@@ -1,0 +1,23 @@
+### Preliminary Data Preprocessing and Feature Selection
+
+After our database was connected to our machine learning model, several steps were taken to preprocess the data. In order to make the dataset more compatible with the model, we dropped the date column, as it only contained unique values.  We also dropped a row that contained an extreme outlier.  We grouped the entries in the 'Holiday' column into categories of either 'holiday' for any holiday and 'none' for days that were not holidays, assuming that most holidays might have a similar affect on traffic. Then we converted those labels from strings into integers so that the model could process the them. We scaled the data, and ran the machine learning model with both scaled and unscaled data. We discovered that scaling our data did not make any difference to the R-squared score in this model. 
+
+### Train-Test-Split
+
+To test the accuracy of our machine learning model, we separated our dataset into a training set with 75% of the records and a testing set the remaining 25% of records. We trained the model on the training set by giving the model both the values for the input features (rain, snow, temperature, etc.) as well as the true outcome values for Pedestrian traffic.  The model used the input and output values to calculate a weighted coeffecient for each feature. We then gave the model the input features only of our testing data and had it predict the pedestrian traffic outcome by applying the coefficients to the features. Our initial model had an R-squared score of .6565 when predicting the outcomes for the testing data, meaning future data has a 65.65% chance of fitting the linear regression model.
+
+### Further Feature Engineering and Selection
+
+After testing the initial model, we experimented with further feature engineering and selection to determine if the model's accuracy could be improved, using visualizations from the data analysis phase of the project to inform our choices.  We trained the model on each new feature set in the same way as described above.  We edited one feature at a time--if the score improved we maintained that change going into the next test, and if the score got worse we reverted the feature back to the previous version.
+
+The visualizations showed that the various weather conditions all seemed to have a noticable affect on pedestrian traffic, so we left those features in place.  
+
+While our initial hypothesis was that all holidays would effect traffic similarly, the visualizations showed that traffic varied greatly between the different holidays. So we tested the model with each holiday having its own integer value, rather the same value for all holidays as one category, which slightly improved the model's score.  The visualizations also showed that pedestrian traffic levels seemed similar among all weekdays and different on weekends, so we grouped the days of the week into weekday and weekend, which also resulted in a slight improvement to the score.  The visualizations showed in general that vehicle traffic remaining more constant than pedestrian traffic regardless of weather, so tested dropping the vehicle traffic column as a feature to see if that would remove some confusion from the model.  We also tested dropping the month of year column as a feature, hypothesizing that temperature was more of a key factor regardless of the month.  With both vehicle traffic and month of year, the model's score worsened when these features were removed.  
+
+Ultimately, the model performed best when all the initial features were included, each holiday in the holiday column was left in place, and the day of week was grouped into weekday or weekend.  With this feature set, the model had the highest R-squared score at .6585, meaning future data points have a 65.85 percent probability of fitting the linear regression model.
+
+### Future training and testing
+
+Each test of various feature sets only improved the model's score slightly.  While we did not test every combination of features possible, the choice of feature sets was informed by trends in the data observed through the visualizations, and testing more combinations available in this data set would not likely yield a significant improvement in the model's accuracy.  
+
+To improve the model going forward beyond the scope of this project, we could obtain more records gathered from the same sorces used for this set.  We could also look to add more features not available in this dataset, such as data relating to access to public transportation in the area, as that could affect how people choose to commute.  
