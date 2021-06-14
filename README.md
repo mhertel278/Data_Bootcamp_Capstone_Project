@@ -56,7 +56,7 @@ Once the datasets had been cleaned and joined our team was able to produce initi
 ## Machine Learning Model
 (See Balaszi_Segment2_MachineLearningModel.ipynb in repo)
 
-### Preliminary Data Preprocessing and Feature Selection
+### Data Preprocessing and Feature Selection
 
 After our database was connected to our machine learning model, several steps were taken to preprocess the data. In order to make the dataset more compatible with the model, we dropped the date column, as it only contained unique values. We also dropped a row that contained an extreme outlier. We grouped the entries in the 'Holiday' column into categories of either 'holiday' for any holiday and 'none' for days that were not holidays, assuming that most holidays might have a similar effect on traffic. Then we converted those labels from strings into integers so that the model could process the them. We scaled the data, and ran the machine learning model with both scaled and unscaled data. We discovered that scaling our data did not make any difference to the R-squared score in this model.
 
@@ -87,7 +87,6 @@ Our initial model test score was 65.65%. Ultimately, the model performed best wh
 Each test of various feature sets only improved the model's score slightly. While we did not test every combination of features possible, the choice of feature sets was informed by trends in the data observed through the visualizations, and testing more combinations available in this data set would not likely yield a significant improvement in the model's accuracy.
 
 To improve the model going forward beyond the scope of this project, we could obtain more records gathered from the same sorces used for this set. We could also look to add more features not available in this dataset, such as data relating to access to public transportation in the area, as that could affect how people choose to commute.
-
 
 
 ## Dashboard
@@ -122,7 +121,7 @@ Tableau Link:
 https://public.tableau.com/views/DraftofFinalProjectVisualizations/Vehiclevs_Non-VehicleTrafficFilteredbyMonth?:language=en-US&:display_count=n&:origin=viz_share_link
 
 
-The Dashboard as of Segment 3 can be found in the repo as Dashboard.PNG
+An image of the Dashboard as of Segment 3 can be found in the repo as Dashboard.PNG
 
 ## Presentation
 
