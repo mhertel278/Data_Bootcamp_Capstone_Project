@@ -133,13 +133,15 @@ Clean holidays to solve for some dates saying None when it is a holiday
 -- determine if all date_times that are holidays have the holiday named
 
 WITH holidayCTE as (
-	SELECT holiday, date_time::date as date
+	SELECT holiday, date_time, date_time::date as date
 	FROM raw_vehicle_traffic
 	) 
 	-- JOIN the CTE to itself where dates are same but holiday is not
 	SELECT a.holiday as a_holiday
+		, a.date_time as a_date_time
 		, a.date as a_date
 		, b.holiday as b_holiday
+		, b.date_time as b_date_time
 		, b.date as b_date
 	FROM holidayCTE a
 	JOIN holidayCTE b
