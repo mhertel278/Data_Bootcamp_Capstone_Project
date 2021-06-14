@@ -13,6 +13,7 @@ The first dataset contained information on hourly traffic volume, hourly weather
 The second dataset contained information on pedestrian traffic (bikers and walkers) on specific days. 
 The original datasets can be found at the links below: 
 https://archive.ics.uci.edu/ml/datasets/Metro+Interstate+Traffic+Volume#
+
 https://www.dot.state.mn.us/bike-ped-counting/reports.html
 
 ### Vehicle Traffic Data
@@ -52,6 +53,39 @@ In the raw_bike_pedestrian_traffic table, columns containing metadata such as ty
 
 Once the datasets had been cleaned and joined our team was able to produce initial visualizations using Seaborn. A variety of visualizations including bar charts, line graphs, scatter plots, swarm graphs, and linear regression plots allowed us to identify outliers and decide what inputs were crucial and which ones just created noise. As a second step new visualizations were created in Tableau to include in the final dashboard as well as make some of the visualizations interactive. 
 
+## Dashboard
+
+For our final Dashboard, we will use visualizations created with Seaborn and Tableau. Seaborn is a Python data visualization library based on matplotlib and will be used to explore the data. Data exploration will involve identifying outliers, initial patterns in the data, and identifying what variables are useful or if they just create noise for the learning model. An example of using visualizations to identify outliers can be seen below.
+
+![outlier_image](README_images/Outlier.png)
+
+Tableau is a visual analytics platform that will allow us to import are final dataset and create more vibrant and complex visualizations. In Tableau we will create several interactive bar charts, line charts and scatter plots.
+
+The interactive elements that will be used in Tableau include the ability to filter pedestrian and vehicle traffic volume by year, month, and holidays. A screen shot ofthose features can be seen below.
+
+![month_image](README_images/V_P_Month.png)
+
+Visualization files:
+
+Outlier.PNG
+
+V_P_Holiday.PNG
+
+V_P_Month.PNG
+
+V_P_Rain.PNG
+
+V_P_Snow.PNG
+
+V_P_Temp.PNG
+
+Dashboard.PNG
+
+Tableau Link:
+https://public.tableau.com/views/DraftofFinalProjectVisualizations/Vehiclevs_Non-VehicleTrafficFilteredbyMonth?:language=en-US&:display_count=n&:origin=viz_share_link
+
+
+An image of the Dashboard as of Segment 3 can be found in the repo as Dashboard.PNG
 
 ## Machine Learning Model
 (See Balaszi_Segment2_MachineLearningModel.ipynb in repo)
@@ -87,41 +121,6 @@ Our initial model test score was 65.65%. Ultimately, the model performed best wh
 Each test of various feature sets only improved the model's score slightly. While we did not test every combination of features possible, the choice of feature sets was informed by trends in the data observed through the visualizations, and testing more combinations available in this data set would not likely yield a significant improvement in the model's accuracy.
 
 To improve the model going forward beyond the scope of this project, we could obtain more records gathered from the same sorces used for this set. We could also look to add more features not available in this dataset, such as data relating to access to public transportation in the area, as that could affect how people choose to commute.
-
-
-## Dashboard
-
-For our final Dashboard, we will use visualizations created with Seaborn and Tableau. Seaborn is a Python data visualization library based on matplotlib and will be used to explore the data. Data exploration will involve identifying outliers, initial patterns in the data, and identifying what variables are useful or if they just create noise for the learning model. An example of using visualizations to identify outliers can be seen below.
-
-![outlier_image](README_images/Outlier.png)
-
-Tableau is a visual analytics platform that will allow us to import are final dataset and create more vibrant and complex visualizations. In Tableau we will create several interactive bar charts, line charts and scatter plots.
-
-The interactive elements that will be used in Tableau include the ability to filter pedestrian and vehicle traffic volume by year, month, and holidays. A screen shot ofthose features can be seen below.
-
-![month_image](README_images/V_P_Month.png)
-
-Visualization files:
-
-Outlier.PNG
-
-V_P_Holiday.PNG
-
-V_P_Month.PNG
-
-V_P_Rain.PNG
-
-V_P_Snow.PNG
-
-V_P_Temp.PNG
-
-Dashboard.PNG
-
-Tableau Link:
-https://public.tableau.com/views/DraftofFinalProjectVisualizations/Vehiclevs_Non-VehicleTrafficFilteredbyMonth?:language=en-US&:display_count=n&:origin=viz_share_link
-
-
-An image of the Dashboard as of Segment 3 can be found in the repo as Dashboard.PNG
 
 ## Presentation
 
