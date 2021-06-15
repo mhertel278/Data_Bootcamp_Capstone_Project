@@ -176,10 +176,27 @@ WITH holidayCTE as (
 
 /*
 
+-- check for duplicates in raw_bike_pedestrian_traffic table
+
+*/
+
+SELECT site
+	, county
+	, date_day
+	, mode
+	, total
+	, ROW_NUMBER() OVER(PARTITION BY site, date_day, mode) as record_count
+FROM raw_bike_pedestrian_traffic
+WHERE county = 'Ramsey'
+ORDER BY record_count, date_day, mode, site
+;
+
 -- join cleaner vehicle table grouped by date, bike_pedestrian table grouped by date for Ramsey county
 -- holiday tables to create machine learning dataset
 
 */
+
+
 
 
 WITH VehicleCTE AS(  -- CTE to aggregate vehicle set on date
