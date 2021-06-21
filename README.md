@@ -88,7 +88,7 @@ https://public.tableau.com/views/DraftofFinalProjectVisualizations/Vehiclevs_Non
 An image of the Dashboard as of Segment 3 can be found in the repo as Dashboard.PNG
 
 ## Machine Learning Model
-(See Balaszi_Segment2_MachineLearningModel.ipynb in repo)
+(See Final_Machine_Learning_Model in repo)
 
 ### Data Preprocessing and Feature Selection
 
