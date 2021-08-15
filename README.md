@@ -61,31 +61,15 @@ For our final Dashboard, we will use visualizations created with Seaborn and Tab
 
 Tableau is a visual analytics platform that will allow us to import are final dataset and create more vibrant and complex visualizations. In Tableau we will create several interactive bar charts, line charts and scatter plots.
 
-The interactive elements that will be used in Tableau include the ability to filter pedestrian and vehicle traffic volume by year, month, and holidays. A screen shot ofthose features can be seen below.
+The interactive elements that will be used in Tableau include the ability to filter pedestrian and vehicle traffic volume by year, month, and holidays. A screen shot of one of those features can be seen below.
 
 ![month_image](README_images/V_P_Month.png)
 
-Visualization files:
 
-Outlier.PNG
-
-V_P_Holiday.PNG
-
-V_P_Month.PNG
-
-V_P_Rain.PNG
-
-V_P_Snow.PNG
-
-V_P_Temp.PNG
-
-Dashboard.PNG
 
 Tableau Link:
 https://public.tableau.com/views/DraftofFinalProjectVisualizations/Vehiclevs_Non-VehicleTrafficFilteredbyMonth?:language=en-US&:display_count=n&:origin=viz_share_link
 
-
-An image of the Dashboard as of Segment 3 can be found in the repo as Dashboard.PNG
 
 ## Machine Learning Model
 (See Final_Machine_Learning_Model in repo)
@@ -123,8 +107,6 @@ Each test of various feature sets only improved the model's score slightly. Whil
 To improve the model going forward beyond the scope of this project, we could obtain more records gathered from the same sorces used for this set. We could also look to add more features not available in this dataset, such as data relating to access to public transportation in the area, as that could affect how people choose to commute.
 
 ## Presentation
-
-Our presentation as of Segment 3 can be found in the repo as Presentation.pdf
 
 The link to the Presentation on Google Slides is found below: 
 https://docs.google.com/presentation/d/1qK3_XEbGcECKn1S4975FJnysEMJKi50fRJiRKp0ZJbo/edit?usp=sharing
