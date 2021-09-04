@@ -45,7 +45,11 @@ It also contained information we didn’t need for our analysis, such as the tec
 
 (See weather_traffic_db.sql in repo)
 
-Most of the data exploration and cleaning was done in SQL.  We first dealt with duplicate datetime entries in the raw_vehicle_traffic table by dropping the textual description columns that did not provide any hard data, then averaging any disparate weather readings for a given datetime.  We found that not all hours for a given holiday date had the the holiday listed, so we had to assure that the holidays were correctly labeled when aggregating on date.
+Most of the data exploration and cleaning was done in SQL.  We first dealt with duplicate datetime entries in the raw_vehicle_traffic table by dropping the textual description columns that did not provide any hard data, then averaging any disparate weather readings for a given datetime.  The image below shows a sample of duplicate datetimes that needed to be addressed:
+
+![duplicate_datetime](README_images/)
+
+We found that not all hours for a given holiday date had the the holiday listed, so we had to assure that the holidays were correctly labeled when aggregating on date.
 
 In the raw_bike_pedestrian_traffic table, columns containing metadata such as type of bike path or technology used to track traffic were dropped.  The dataset contained data for several counties in Minnesota, so we filtered to only Ramsey County where the vehicle traffic was recorded.  The weather columns contained some null values, so we dropped those columns, since the vehicle traffic also contained weather data with no nulls.  Each date in this table had an entry for pedestrian traffic and an entry for bike traffic, so we summed those values to get a total non-vehicle traffic value for each date.
 
@@ -92,7 +96,11 @@ To test the accuracy of our machine learning model, we separated our dataset int
 
 After testing the initial model, we experimented with further feature engineering and selection to determine if the model's accuracy could be improved, using visualizations from the data analysis phase of the project to inform our choices. We trained the model on each new feature set in the same way as described above. We edited one feature at a time--if the score improved we maintained that change going into the next test, and if the score got worse we reverted the feature back to the previous version.
 
-The visualizations showed that the various weather conditions all seemed to have a noticable affect on pedestrian traffic, so we left those features in place.
+The visualizations below showed that the various weather conditions all seemed to have a noticable affect on pedestrian traffic, so we left those features in place.
+
+![rain_viz](README_images/V_P_Rain.png)
+
+![temp_viz](README_images/V_P_Temp.png)
 
 While our initial hypothesis was that all holidays would effect traffic similarly, the visualizations showed that traffic varied greatly between the different holidays. So we tested the model with each holiday having its own integer value, rather the same value for all holidays as one category, which slightly improved the model's score. The visualizations also showed that pedestrian traffic levels seemed similar among all weekdays and different on weekends, so we grouped the days of the week into weekday and weekend, which also resulted in a slight improvement to the score. The visualizations showed in general that vehicle traffic remaining more constant than pedestrian traffic regardless of weather, so we tested dropping the vehicle traffic column as a feature to see if that would remove some confusion from the model. We also tested dropping the month of year column as a feature, hypothesizing that temperature was more of a key factor regardless of the month. With both vehicle traffic and month of year, the model's score worsened when these features were removed.
 
