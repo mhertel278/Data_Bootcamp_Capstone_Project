@@ -47,9 +47,11 @@ It also contained information we didn’t need for our analysis, such as the tec
 
 Most of the data exploration and cleaning was done in SQL.  We first dealt with duplicate datetime entries in the raw_vehicle_traffic table by dropping the textual description columns that did not provide any hard data, then averaging any disparate weather readings for a given datetime.  The image below shows a sample of duplicate datetimes that needed to be addressed:
 
-![duplicate_datetime](README_images/)
+![duplicate_datetime](README_images/duplicate_date_time_vehicle.png)
 
-We found that not all hours for a given holiday date had the the holiday listed, so we had to assure that the holidays were correctly labeled when aggregating on date.
+We found that not all hours for a given holiday date had the the holiday listed, as seen in the query below, so we had to assure that the holidays were correctly labeled when aggregating on date.
+
+![holiday](README_images/incorrectly_labelled_holiday_table.png)
 
 In the raw_bike_pedestrian_traffic table, columns containing metadata such as type of bike path or technology used to track traffic were dropped.  The dataset contained data for several counties in Minnesota, so we filtered to only Ramsey County where the vehicle traffic was recorded.  The weather columns contained some null values, so we dropped those columns, since the vehicle traffic also contained weather data with no nulls.  Each date in this table had an entry for pedestrian traffic and an entry for bike traffic, so we summed those values to get a total non-vehicle traffic value for each date.
 
