@@ -45,7 +45,7 @@ It also contained information we didn’t need for our analysis, such as the tec
 
 (See weather_traffic_db.sql in repo)
 
-Most of the data exploration and cleaning was done in SQL.  We first dealt with duplicate datetime entries in the raw_vehicle_traffic table by dropping the textual description columns that did not provide any hard data, then averaging any disparate weather readings for a given datetime.  The image below shows a sample of duplicate datetimes that needed to be addressed:
+Most of the data exploration and cleaning was done in SQL.  We first dealt with duplicate datetime entries in the raw_vehicle_traffic table by dropping the textual description columns that did not provide any hard data, then averaging any disparate weather readings for a given datetime.  The image below shows samples of duplicated datetimes with identical weather data and only slightly different text weather descriptions:
 
 ![duplicate_datetime](README_images/duplicate_date_time_vehicle.png)
 
